@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+
+    <!-- Äußerer Kreis -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M150,10 A140,140 0 1,1 149.9,10" />
+
+    <!-- Norden Pfeil (Rot) -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M150,30 L130,80 L150,70 L170,80 Z" />
+
+    <!-- Süden Pfeil (Weiß) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M150,270 L130,220 L150,230 L170,220 Z" />
+
+    <!-- Mittelpunkt -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M150,150 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

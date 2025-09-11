@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimpleCompass</string>
+    <string name="kompass">KOMPASS</string>
+    <string name="_0">0°</string>
+    <string name="n">N</string>
+    <string name="halte_dein_ger_t_horizontal">Halte dein Gerät horizontal</string>
+</resources>
