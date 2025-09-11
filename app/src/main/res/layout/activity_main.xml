@@ -3,62 +3,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <!-- Titel -->
-    <TextView
-        android:id="@+id/titleText"
+    <!-- Header mit Titel -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DIGITAL COMPASS"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.15"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/accent" />
+    </LinearLayout>
+
+    <!-- Grad Container mit Card-Style -->
+    <LinearLayout
+        android:id="@+id/degreeContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="KOMPASS"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_card"
+        android:padding="16dp"
+        android:elevation="4dp">
 
-    <!-- Grad Anzeige -->
-    <TextView
-        android:id="@+id/degreeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titleText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="0°"
-        android:textColor="@color/accent"
-        android:textSize="48sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/degreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            android:fontFamily="sans-serif-thin"
+            android:textStyle="bold" />
 
-    <!-- Richtung -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="°"
+            android:textColor="@color/accent"
+            android:textSize="32sp"
+            android:layout_gravity="top"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Richtung mit animiertem Hintergrund -->
     <TextView
         android:id="@+id/directionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/degreeText"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/degreeContainer"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle_background"
+        android:gravity="center"
         android:text="N"
         android:textColor="@color/white"
-        android:textSize="32sp" />
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:elevation="6dp" />
 
-    <!-- Kompass Bild -->
-    <ImageView
-        android:id="@+id/compassImage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/compass" />
-
-    <!-- Info Text -->
-    <TextView
+    <!-- Kompass Bild mit Schatten -->
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/compassImage"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:src="@drawable/compass"
+            android:elevation="8dp" />
+    </FrameLayout>
+
+    <!-- Bottom Info Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:text="Halte dein Gerät horizontal"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="30dp">
+
+        <!-- Info Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Halte dein Gerät horizontal"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:alpha="0.8" />
+
+        <!-- Kalibrierungs-Status -->
+        <TextView
+            android:id="@+id/calibrationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="✓ Kalibriert"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <!-- Exit Button -->
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:text="BEENDEN"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:letterSpacing="0.1"
+            android:elevation="4dp" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -8,9 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Custom Farben für Kompass App -->
+    <!-- Kompass App Farben -->
     <color name="background">#1E1E1E</color>
     <color name="accent">#FF5722</color>
     <color name="text_secondary">#B0B0B0</color>
     <color name="compass_ring">#37474F</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+    <color name="dark_blue">#1a237e</color>
 </resources>
