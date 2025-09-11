@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Halte dein Gerät horizontal"
+            android:text="@string/halte_dein_ger_t_horizontal"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:alpha="0.8" />
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="✓ Kalibriert"
+            android:text="@string/kalibriert"
             android:textColor="@color/green"
             android:textSize="12sp" />
 
