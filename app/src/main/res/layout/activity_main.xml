@@ -97,7 +97,7 @@
             android:elevation="8dp" />
     </FrameLayout>
 
-    <!-- Bottom Info Container -->
+    <!-- Bottom Info Container - Ersetze den bestehenden Container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,11 +107,11 @@
         android:layout_marginBottom="60dp"
         android:paddingBottom="20dp">
 
-    <!-- Info Text -->
+        <!-- Info Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/halte_dein_ger_t_horizontal"
+            android:text="Halte dein Gerät horizontal"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:alpha="0.8" />
@@ -126,18 +126,38 @@
             android:textColor="@color/green"
             android:textSize="12sp" />
 
-        <!-- Exit Button -->
-        <Button
-            android:id="@+id/exitButton"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_background"
-            android:text="@string/beenden"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:letterSpacing="0.1"
-            android:elevation="4dp" />
+        <!-- Button Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <!-- About Button -->
+            <Button
+                android:id="@+id/aboutButton"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_background_blue"
+                android:text="ABOUT"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:letterSpacing="0.1"
+                android:elevation="4dp" />
+
+            <!-- Exit Button -->
+            <Button
+                android:id="@+id/exitButton"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:text="EXIT"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:letterSpacing="0.1"
+                android:elevation="4dp" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

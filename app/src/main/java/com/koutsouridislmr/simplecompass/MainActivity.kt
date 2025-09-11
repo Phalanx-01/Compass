@@ -1,6 +1,7 @@
 package com.koutsouridislmr.simplecompass
 
 import android.app.Activity
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -30,6 +31,8 @@ class MainActivity : Activity(), SensorEventListener {
     private val geomagnetic = FloatArray(3)
     private var lastUpdateTime = 0L
 
+    private lateinit var aboutButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,10 +43,16 @@ class MainActivity : Activity(), SensorEventListener {
         directionText = findViewById(R.id.directionText)
         calibrationText = findViewById(R.id.calibrationText)
         exitButton = findViewById(R.id.exitButton)
+        aboutButton = findViewById(R.id.aboutButton)
 
         // Exit Button Click Listener
         exitButton.setOnClickListener {
             finish() // Beendet die Activity
+        }
+        // About Button Click Listener
+        aboutButton.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
         }
 
         // Sensor Manager initialisieren

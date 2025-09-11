@@ -4,25 +4,142 @@
     android:viewportWidth="300"
     android:viewportHeight="300">
 
-    <!-- Äußerer Kreis -->
+    <!-- Äußerer Ring -->
     <path
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="3"
+        android:strokeWidth="2"
         android:fillColor="#00000000"
-        android:pathData="M150,10 A140,140 0 1,1 149.9,10" />
+        android:pathData="M150,20 A130,130 0 1,1 149.9,20" />
 
-    <!-- Norden Pfeil (Rot) -->
+    <!-- Innerer Ring -->
+    <path
+        android:strokeColor="#30FFFFFF"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:pathData="M150,40 A110,110 0 1,1 149.9,40" />
+
+    <!-- Hauptmarkierungen -->
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:pathData="M150,20 L150,35" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:pathData="M280,150 L265,150" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:pathData="M150,280 L150,265" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:pathData="M20,150 L35,150" />
+
+    <!-- Kleine Markierungen alle 30° -->
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M212,62 L206,68" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M238,88 L232,94" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M238,212 L232,206" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M212,238 L206,232" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M88,238 L94,232" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M62,212 L68,206" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M62,88 L68,94" />
+    <path android:strokeColor="#60FFFFFF" android:strokeWidth="1" android:pathData="M88,62 L94,68" />
+
+    <!-- N (Norden) -->
     <path
         android:fillColor="#FF5722"
-        android:pathData="M150,30 L130,80 L150,70 L170,80 Z" />
+        android:strokeColor="#FF5722"
+        android:strokeWidth="3"
+        android:pathData="M 143,42 L 143,58" />
+    <path
+        android:fillColor="#FF5722"
+        android:strokeColor="#FF5722"
+        android:strokeWidth="3"
+        android:pathData="M 143,42 L 157,58" />
+    <path
+        android:fillColor="#FF5722"
+        android:strokeColor="#FF5722"
+        android:strokeWidth="3"
+        android:pathData="M 157,42 L 157,58" />
 
-    <!-- Süden Pfeil (Weiß) -->
+    <!-- E (Osten) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M150,270 L130,220 L150,230 L170,220 Z" />
-
-    <!-- Mittelpunkt -->
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 240,145 L 240,155" />
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M150,150 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 240,145 L 250,145" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 240,150 L 248,150" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 240,155 L 250,155" />
+
+    <!-- S (Süden) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 145,243 L 155,243" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 145,243 L 145,250" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 145,250 L 155,250" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 155,250 L 155,257" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 155,257 L 145,257" />
+
+    <!-- W (Westen) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 43,145 L 47,155" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 47,155 L 50,148" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 50,148 L 53,155" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M 53,155 L 57,145" />
+
+    <!-- Kompassnadel Nord (rot) -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M150,70 L145,140 L150,130 L155,140 Z" />
+
+    <!-- Kompassnadel Süd (grau) -->
+    <path
+        android:fillColor="#546E7A"
+        android:pathData="M150,230 L145,160 L150,170 L155,160 Z" />
+
+    <!-- Mittelpunkt äußerer Ring -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M150,150 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+
+    <!-- Mittelpunkt innerer Punkt -->
+    <path
+        android:fillColor="#263238"
+        android:pathData="M150,150 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+
 </vector>
