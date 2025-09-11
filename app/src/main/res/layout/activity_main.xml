@@ -19,7 +19,7 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DIGITAL COMPASS"
+            android:text="@string/digital_compass"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:fontFamily="sans-serif-light"
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Halte dein Gerät horizontal"
+            android:text="@string/halte_dein_ger_t_horizontal"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:alpha="0.8" />
@@ -133,7 +133,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_background"
-            android:text="BEENDEN"
+            android:text="@string/beenden"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:letterSpacing="0.1"

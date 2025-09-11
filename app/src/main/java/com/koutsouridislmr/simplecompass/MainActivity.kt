@@ -146,19 +146,19 @@ class MainActivity : Activity(), SensorEventListener {
         // Update Kalibrierungs-Status
         when (accuracy) {
             SensorManager.SENSOR_STATUS_ACCURACY_HIGH -> {
-                calibrationText.text = "✓ Perfekt kalibriert"
+                calibrationText.text = "✓ Perfectly calibrated"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM -> {
-                calibrationText.text = "✓ Kalibriert"
+                calibrationText.text = "✓ Calibrated"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_LOW -> {
-                calibrationText.text = "⚠ Kalibrierung nötig"
+                calibrationText.text = "⚠ Calibration required"
                 calibrationText.setTextColor(getColor(R.color.accent))
             }
             SensorManager.SENSOR_STATUS_UNRELIABLE -> {
-                calibrationText.text = "⚠ Bitte 8-Form bewegen"
+                calibrationText.text = "⚠ Please move in a figure-eight pattern"
                 calibrationText.setTextColor(getColor(R.color.red))
             }
         }
