@@ -119,20 +119,20 @@
 
         </LinearLayout>
 
-        <!-- Legal Buttons Container -->
+        <!-- All Buttons Container -->
         <LinearLayout
-            android:id="@+id/legalContainer"
+            android:id="@+id/buttonsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/creditsContainer"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical"
             android:gravity="center">
 
             <!-- Privacy Policy Button -->
             <Button
                 android:id="@+id/privacyButton"
-                android:layout_width="260dp"
+                android:layout_width="280dp"
                 android:layout_height="45dp"
                 android:background="@drawable/button_background_transparent"
                 android:text="Privacy Policy / Datenschutz"
@@ -143,29 +143,27 @@
             <!-- Disclaimer Button -->
             <Button
                 android:id="@+id/disclaimerButton"
-                android:layout_width="260dp"
+                android:layout_width="280dp"
                 android:layout_height="45dp"
                 android:background="@drawable/button_background_transparent"
                 android:text="Disclaimer / Haftungsausschluss"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="10dp" />
+
+            <!-- Back Button - same size as others -->
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="280dp"
+                android:layout_height="65dp"
+                android:background="@drawable/button_background_blue"
+                android:text="BACK TO COMPASS"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginTop="45dp"
+                android:elevation="4dp" />
 
         </LinearLayout>
-
-        <!-- Back Button -->
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/legalContainer"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background_blue"
-            android:text="BACK TO COMPASS"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:letterSpacing="0.1"
-            android:elevation="4dp" />
 
         <!-- Copyright -->
         <TextView
@@ -174,9 +172,9 @@
             android:text="© 2024 Loukas Koutsouridis"
             android:textColor="@color/text_secondary"
             android:textSize="10sp"
-            android:layout_below="@id/backButton"
+            android:layout_below="@id/buttonsContainer"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp" />
 
     </RelativeLayout>

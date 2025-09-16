@@ -16,4 +16,14 @@
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>
     <color name="dark_blue">#1a237e</color>
+
+    <!-- Himmelsrichtungen Farben -->
+    <color name="north_color">#FF5722</color>     <!-- Rot für Nord -->
+    <color name="northeast_color">#FF9800</color> <!-- Orange für Nordost -->
+    <color name="east_color">#FFC107</color>      <!-- Gelb für Ost -->
+    <color name="southeast_color">#8BC34A</color> <!-- Hellgrün für Südost -->
+    <color name="south_color">#2196F3</color>     <!-- Blau für Süd -->
+    <color name="southwest_color">#3F51B5</color> <!-- Indigo für Südwest -->
+    <color name="west_color">#9C27B0</color>      <!-- Lila für West -->
+    <color name="northwest_color">#E91E63</color> <!-- Pink für Nordwest -->
 </resources>

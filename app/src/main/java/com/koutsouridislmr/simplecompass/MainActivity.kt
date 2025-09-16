@@ -22,6 +22,7 @@ class MainActivity : Activity(), SensorEventListener {
     private lateinit var directionText: TextView
     private lateinit var calibrationText: TextView
     private lateinit var exitButton: Button
+    private lateinit var aboutButton: Button
 
     private var accelerometer: Sensor? = null
     private var magnetometer: Sensor? = null
@@ -30,8 +31,6 @@ class MainActivity : Activity(), SensorEventListener {
     private val gravity = FloatArray(3)
     private val geomagnetic = FloatArray(3)
     private var lastUpdateTime = 0L
-
-    private lateinit var aboutButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +46,9 @@ class MainActivity : Activity(), SensorEventListener {
 
         // Exit Button Click Listener
         exitButton.setOnClickListener {
-            finish() // Beendet die Activity
+            finish()
         }
+
         // About Button Click Listener
         aboutButton.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
@@ -140,13 +140,47 @@ class MainActivity : Activity(), SensorEventListener {
             degreeText.text = "$degree"
 
             // Richtung bestimmen und anzeigen
-            directionText.text = getDirection(degree)
+            val direction = getDirection(degree)
+            directionText.text = direction
 
-            // Richtung färben basierend auf Hauptrichtung
-            when (getDirection(degree)) {
-                "N" -> directionText.setBackgroundResource(R.drawable.circle_background_north)
-                "S" -> directionText.setBackgroundResource(R.drawable.circle_background_south)
-                else -> directionText.setBackgroundResource(R.drawable.circle_background)
+            // Richtungsfarbe und Hintergrund basierend auf Himmelsrichtung
+            when (direction) {
+                "N" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_north)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "NE" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_northeast)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "E" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_east)
+                    directionText.setTextColor(getColor(R.color.black))
+                }
+                "SE" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_southeast)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "S" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_south)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "SW" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_southwest)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "W" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_west)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                "NW" -> {
+                    directionText.setBackgroundResource(R.drawable.circle_northwest)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
+                else -> {
+                    directionText.setBackgroundResource(R.drawable.circle_background)
+                    directionText.setTextColor(getColor(R.color.white))
+                }
             }
         }
     }
@@ -155,19 +189,19 @@ class MainActivity : Activity(), SensorEventListener {
         // Update Kalibrierungs-Status
         when (accuracy) {
             SensorManager.SENSOR_STATUS_ACCURACY_HIGH -> {
-                calibrationText.text = "✓ Perfectly calibrated"
+                calibrationText.text = "✓ Perfekt kalibriert"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM -> {
-                calibrationText.text = "✓ Calibrated"
+                calibrationText.text = "✓ Kalibriert"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_LOW -> {
-                calibrationText.text = "⚠ Calibration required"
+                calibrationText.text = "⚠ Kalibrierung nötig"
                 calibrationText.setTextColor(getColor(R.color.accent))
             }
             SensorManager.SENSOR_STATUS_UNRELIABLE -> {
-                calibrationText.text = "⚠ Please move in a figure-eight pattern"
+                calibrationText.text = "⚠ Bitte 8-Form bewegen"
                 calibrationText.setTextColor(getColor(R.color.red))
             }
         }
@@ -176,13 +210,13 @@ class MainActivity : Activity(), SensorEventListener {
     private fun getDirection(degree: Int): String {
         return when (degree) {
             in 0..22, in 338..360 -> "N"
-            in 23..67 -> "NO"
-            in 68..112 -> "O"
-            in 113..157 -> "SO"
+            in 23..67 -> "NE"  // Northeast (statt NO)
+            in 68..112 -> "E"
+            in 113..157 -> "SE" // Southeast (statt SO)
             in 158..202 -> "S"
-            in 203..247 -> "SW"
+            in 203..247 -> "SW" // Southwest
             in 248..292 -> "W"
-            in 293..337 -> "NW"
+            in 293..337 -> "NW" // Northwest
             else -> ""
         }
     }
