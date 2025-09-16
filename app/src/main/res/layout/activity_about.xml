@@ -1,144 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    android:padding="20dp">
+    android:fillViewport="true">
 
-    <!-- Header -->
-
-    <!-- Credits Container -->
-
-    <LinearLayout
-        android:id="@+id/headerLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:padding="20dp">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:letterSpacing="0.15"
-            android:text="DIGITAL COMPASS"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DIGITAL COMPASS"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-light"
+                android:letterSpacing="0.15"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.0.0"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Credits Container -->
+        <LinearLayout
+            android:id="@+id/creditsContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Version 1.0"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
-    </LinearLayout>
+            android:layout_below="@id/headerLayout"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_card"
+            android:padding="25dp"
+            android:elevation="4dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_card"
-        android:padding="30dp"
-        android:elevation="4dp">
+            <!-- Developer -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Developer"
+                android:textColor="@color/accent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
 
-        <!-- Developer -->
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loukas Koutsouridis"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="25dp" />
+
+            <!-- Special Thanks -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Special Thanks"
+                android:textColor="@color/accent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gil Helen Koutsouridou"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&amp;"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anca Verdes"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="For their support during development"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <!-- Legal Buttons Container -->
+        <LinearLayout
+            android:id="@+id/legalContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Developer"
-            android:textColor="@color/accent"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
+            android:layout_below="@id/creditsContainer"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loukas Koutsouridis"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="30dp" />
+            <!-- Privacy Policy Button -->
+            <Button
+                android:id="@+id/privacyButton"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background_transparent"
+                android:text="Privacy Policy / Datenschutz"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp" />
 
-        <!-- Special Thanks -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Special Thanks"
-            android:textColor="@color/accent"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
+            <!-- Disclaimer Button -->
+            <Button
+                android:id="@+id/disclaimerButton"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background_transparent"
+                android:text="Disclaimer / Haftungsausschluss"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gil Helen Koutsouridou"
+        </LinearLayout>
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/legalContainer"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background_blue"
+            android:text="BACK TO COMPASS"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp" />
+            android:letterSpacing="0.1"
+            android:elevation="4dp" />
 
+        <!-- Copyright -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="&amp;"
+            android:text="© 2024 Loukas Koutsouridis"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:textSize="10sp"
+            android:layout_below="@id/backButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anca Verdes"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="For their support during development"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:textStyle="italic" />
-
-    </LinearLayout>
-
-    <!-- Back Button -->
-
-    <!-- Copyright -->
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="84dp"
-        android:background="@drawable/button_background_blue"
-        android:elevation="4dp"
-        android:letterSpacing="0.1"
-        android:text="BACK TO COMPASS"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="© 2024 Loukas Koutsouridis"
-        android:textColor="@color/text_secondary"
-        android:textSize="10sp"
-        android:layout_above="@id/backButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
