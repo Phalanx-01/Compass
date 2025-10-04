@@ -30,7 +30,7 @@ class AboutActivity : Activity() {
 
     private fun showPrivacyDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Privacy Policy / Datenschutz")
+            .setTitle("Privacy Policy")
             .setMessage(getPrivacyText())
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
@@ -40,9 +40,9 @@ class AboutActivity : Activity() {
 
     private fun showDisclaimerDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Disclaimer / Haftungsausschluss")
+            .setTitle("Disclaimer")
             .setMessage(getDisclaimerText())
-            .setPositiveButton("Accept / Akzeptieren") { dialog, _ ->
+            .setPositiveButton("Accept") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -50,71 +50,66 @@ class AboutActivity : Activity() {
 
     private fun getPrivacyText(): String {
         return """
-            DATENSCHUTZERKLÄRUNG / PRIVACY POLICY
-            
-            Stand: Januar 2024
-            
-            === DEUTSCH ===
-            
-            Datenerfassung:
-            Diese App erfasst, speichert oder überträgt KEINE persönlichen Daten.
-            
-            Sensorzugriff:
-            Die App nutzt ausschließlich lokale Gerätesensoren (Magnetometer, Accelerometer) zur Kompassfunktion. Diese Daten verlassen niemals Ihr Gerät.
-            
-            Internetverbindung:
-            Keine Internetverbindung erforderlich. Keine Datenübertragung an externe Server.
-            
-            === ENGLISH ===
-            
+            PRIVACY POLICY
+
+            Last Updated: January 2024
+
             Data Collection:
             This app does NOT collect, store, or transmit any personal data.
-            
+
             Sensor Access:
             The app only uses local device sensors (magnetometer, accelerometer) for compass functionality. This data never leaves your device.
-            
+
             Internet Connection:
             No internet connection required. No data transmission to external servers.
+
+            Your Privacy:
+            • No personal information is collected
+            • No location data is stored
+            • No analytics or tracking
+            • Completely offline operation
+            • All sensor data remains on your device
         """.trimIndent()
     }
 
     private fun getDisclaimerText(): String {
         return """
-            HAFTUNGSAUSSCHLUSS / DISCLAIMER
-            
+            DISCLAIMER
+
             © 2024 Loukas Koutsouridis
-            
-            === WICHTIG / IMPORTANT ===
-            
-            Diese App dient ausschließlich zu Informationszwecken.
+
+            === IMPORTANT ===
+
             This app is for informational purposes only.
-            
-            NICHT für kritische Navigation verwenden!
             NOT for critical navigation!
-            
-            === GENAUIGKEIT / ACCURACY ===
-            
-            Die Kompassanzeige kann beeinflusst werden durch:
+
+            === ACCURACY ===
+
             Compass readings may be affected by:
-            • Metallische Gegenstände / Metal objects
-            • Magnetische Felder / Magnetic fields  
-            • Elektronische Geräte / Electronic devices
-            • Gebäude / Buildings
-            • Gerätehardware / Device hardware
-            
-            === HAFTUNG / LIABILITY ===
-            
-            Keine Haftung für:
+            • Metal objects
+            • Magnetic fields
+            • Electronic devices
+            • Buildings
+            • Device hardware limitations
+
+            === LIABILITY ===
+
             No liability for:
-            • Ungenauigkeiten / Inaccuracies
-            • Schäden jeglicher Art / Damages of any kind
-            • Fehlentscheidungen / Wrong decisions
-            
-            NUTZUNG AUF EIGENES RISIKO
+            • Inaccuracies in compass readings
+            • Damages of any kind
+            • Decisions made based on this app
+            • Navigation errors
+
+            === TERMS OF USE ===
+
             USE AT YOUR OWN RISK
-            
-            Mit der Nutzung akzeptieren Sie diese Bedingungen.
-            By using this app, you accept these terms.
+
+            This compass is a simple tool and should not be relied upon for:
+            • Emergency situations
+            • Professional navigation
+            • Life-critical decisions
+
+            By using this app, you accept these terms and conditions.
         """.trimIndent()
     }
 }
