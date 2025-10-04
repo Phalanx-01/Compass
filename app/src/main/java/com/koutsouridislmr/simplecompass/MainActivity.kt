@@ -72,11 +72,11 @@ class MainActivity : Activity(), SensorEventListener {
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
 
-        // Check ob Sensoren verfügbar sind
+        // Check if sensors are available
         if (accelerometer == null || magnetometer == null) {
             degreeText.text = "N/A"
             directionText.text = "?"
-            calibrationText.text = "⚠ Keine Sensoren gefunden"
+            calibrationText.text = "⚠ No sensors found"
             calibrationText.setTextColor(getColor(R.color.red))
         }
 
@@ -203,22 +203,22 @@ class MainActivity : Activity(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // Update Kalibrierungs-Status
+        // Update calibration status
         when (accuracy) {
             SensorManager.SENSOR_STATUS_ACCURACY_HIGH -> {
-                calibrationText.text = "✓ Perfekt kalibriert"
+                calibrationText.text = "✓ Perfectly calibrated"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM -> {
-                calibrationText.text = "✓ Kalibriert"
+                calibrationText.text = "✓ Calibrated"
                 calibrationText.setTextColor(getColor(R.color.green))
             }
             SensorManager.SENSOR_STATUS_ACCURACY_LOW -> {
-                calibrationText.text = "⚠ Kalibrierung nötig"
+                calibrationText.text = "⚠ Calibration needed"
                 calibrationText.setTextColor(getColor(R.color.accent))
             }
             SensorManager.SENSOR_STATUS_UNRELIABLE -> {
-                calibrationText.text = "⚠ Bitte 8-Form bewegen"
+                calibrationText.text = "⚠ Please move in figure-8"
                 calibrationText.setTextColor(getColor(R.color.red))
             }
         }
