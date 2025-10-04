@@ -1,7 +1,10 @@
 package com.koutsouridislmr.simplecompass
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -23,6 +26,7 @@ class MainActivity : Activity(), SensorEventListener {
     private lateinit var calibrationText: TextView
     private lateinit var exitButton: Button
     private lateinit var aboutButton: Button
+    private lateinit var sharedPreferences: SharedPreferences
 
     private var accelerometer: Sensor? = null
     private var magnetometer: Sensor? = null
@@ -32,9 +36,17 @@ class MainActivity : Activity(), SensorEventListener {
     private val geomagnetic = FloatArray(3)
     private var lastUpdateTime = 0L
 
+    companion object {
+        private const val PREFS_NAME = "CompassPrefs"
+        private const val KEY_DISCLAIMER_SHOWN = "disclaimer_shown"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
         // Views initialisieren
         compassImage = findViewById(R.id.compassImage)
@@ -66,6 +78,11 @@ class MainActivity : Activity(), SensorEventListener {
             directionText.text = "?"
             calibrationText.text = "⚠ Keine Sensoren gefunden"
             calibrationText.setTextColor(getColor(R.color.red))
+        }
+
+        // Show disclaimer on first launch
+        if (!sharedPreferences.getBoolean(KEY_DISCLAIMER_SHOWN, false)) {
+            showDisclaimerDialog()
         }
     }
 
@@ -219,5 +236,51 @@ class MainActivity : Activity(), SensorEventListener {
             in 293..337 -> "NW" // Northwest
             else -> ""
         }
+    }
+
+    private fun showDisclaimerDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Disclaimer")
+            .setMessage(getDisclaimerText())
+            .setPositiveButton("Accept") { dialog, _ ->
+                // Mark disclaimer as shown
+                sharedPreferences.edit().putBoolean(KEY_DISCLAIMER_SHOWN, true).apply()
+                dialog.dismiss()
+            }
+            .setNegativeButton("Decline") { _, _ ->
+                // If user declines, exit the app
+                finish()
+            }
+            .setCancelable(false) // User must choose Accept or Decline
+            .show()
+    }
+
+    private fun getDisclaimerText(): String {
+        return """
+            IMPORTANT NOTICE
+
+            This app is for informational purposes only and should NOT be used for critical navigation.
+
+            Compass readings may be affected by:
+            • Metal objects
+            • Magnetic fields
+            • Electronic devices
+            • Buildings
+            • Device hardware limitations
+
+            No liability is assumed for:
+            • Inaccuracies in compass readings
+            • Any damages or losses
+            • Decisions made based on this app
+
+            This compass should not be relied upon for:
+            • Emergency situations
+            • Professional navigation
+            • Life-critical decisions
+
+            USE AT YOUR OWN RISK
+
+            By accepting, you acknowledge that you understand and agree to these terms.
+        """.trimIndent()
     }
 }
